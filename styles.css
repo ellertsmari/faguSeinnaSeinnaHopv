@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #2a2a2a;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.slideshow-container {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 700px;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    padding: 60px;
+}
+
+.slide {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.slide.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.slide-image {
+    max-width: 400px;
+    max-height: 300px;
+    margin-bottom: 30px;
+    object-fit: contain;
+}
+
+/* Side-by-side layout */
+.side-by-side {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.side-image {
+    flex: 0 0 auto;
+}
+
+.side-image img {
+    max-width: 350px;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.side-text {
+    flex: 1;
+    text-align: left;
+}
+
+.side-text h1 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.side-text ul {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #6a6a6a;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #3a3a3a;
+    margin: 30px 0 20px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    list-style: none;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+ul li {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    position: relative;
+}
+
+ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #3a3a3a;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px auto;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: rgba(58, 58, 58, 0.85);
+    color: #ede7dc;
+}
+
+th {
+    padding: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+}
+
+td {
+    padding: 18px;
+    text-align: center;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: #3a3a3a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: background-color 0.3s;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+button {
+    background: rgba(58, 58, 58, 0.85);
+    color: #ede7dc;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+button:hover {
+    background: rgba(58, 58, 58, 1);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.slide-counter {
+    color: #ede7dc;
+    font-size: 1.2em;
+    font-weight: 500;
+    min-width: 80px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .slideshow-container {
+        padding: 30px 20px;
+        min-height: 500px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    th, td {
+        padding: 12px 8px;
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .controls {
+        gap: 15px;
+    }
+}
